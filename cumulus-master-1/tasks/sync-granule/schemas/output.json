@@ -1,0 +1,60 @@
+{
+  "title": "SyncGranuleOutput",
+  "description": "Describes the output produced by the sync-granule task",
+  "type": "object",
+  "required": ["granules"],
+  "properties": {
+    "granules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["granuleId", "dataType", "version", "files"],
+        "properties": {
+          "granuleId": {"type": "string"},
+          "dataType": {"type": "string"},
+          "version": {"type": "string"},
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "filename": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "bucket": {
+                  "type": "string"
+                },
+                "url_path": {
+                  "description": "url path template that determines the filepath of the file when published",
+                  "type": "string"
+                },
+                "fileStagingDir": {
+                  "description": "name of directory used for staging location",
+                  "type": "string"
+                },
+                "duplicate_found": {
+                  "description": "whether a duplicate for this file was found",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "pdr": {
+      "required": ["name", "path"],
+      "properties": {
+        "name": { "type": "string" },
+        "path": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@cumulus/earthdata-login-client",
+  "version": "2.0.1",
+  "description": "A client for the Earthata Login service API",
+  "homepage": "https://github.com/nasa/cumulus/tree/master/packages/earthdata-login-client#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa/cumulus",
+    "directory": "packages/earthdata-login-client"
+  },
+  "author": "Cumulus Authors",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Cumulus"
+  ],
+  "engines": {
+    "node": ">=12.18.0"
+  },
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src/**/*.js",
+    "dist/src/**/*.d.ts"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build-docs": "npm run tsc && ../../node_modules/.bin/jsdoc2md -t templates/README.md.hbs dist/src/*.js > README.md",
+    "prepare": "npm run tsc",
+    "test": "../../node_modules/.bin/ava",
+    "test:coverage": "../../node_modules/.bin/nyc npm test",
+    "tsc": "rm -rf dist && ../../node_modules/.bin/tsc"
+  },
+  "ava": {
+    "files": [
+      "tests/*"
+    ],
+    "verbose": true,
+    "typescript": {
+      "rewritePaths": {
+        "tests/": "dist/tests/"
+      }
+    }
+  },
+  "dependencies": {
+    "got": "^11.2.0"
+  }
+}

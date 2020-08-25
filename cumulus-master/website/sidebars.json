@@ -1,0 +1,110 @@
+{
+  "docs": {
+    "About Cumulus": [
+      "cumulus-docs-readme",
+      "architecture",
+      "interfaces",
+      "glossary",
+      "team"
+    ],
+    "Cumulus Workflows": [
+      "workflows/workflows-readme",
+      "workflows/protocol",
+      "workflows/input_output",
+      "workflows/cumulus-task-message-flow",
+      "workflows/developing-a-cumulus-workflow",
+      "workflows/developing-workflow-tasks",
+      "workflows/lambda",
+      "workflows/docker",
+      "workflows/workflow-configuration-how-to",
+      "workflows/workflow-triggers"
+    ],
+    "Tasks": [
+      "tasks",
+      "workflow_tasks/discover_granules",
+      "workflow_tasks/files_to_granules",
+      "workflow_tasks/move_granules",
+      "workflow_tasks/parse_pdr"
+    ],
+    "Deployment": [
+      "deployment/deployment-readme",
+      "deployment/monitoring-readme",
+      "deployment/terraform-best-practices",
+      "deployment/upgrade-readme",
+      "deployment/components",
+      "deployment/create_bucket",
+      "deployment/server_access_logging",
+      "deployment/thin_egress_app"
+    ],
+    "Deployment Options": [
+      "additional-deployment-options/api-gateway-logging",
+      "additional-deployment-options/share-s3-access-logs",
+      "additional-deployment-options/cloudwatch-logs-delivery",
+      "additional-deployment-options/cmr_launchpad_authentication",
+      "additional-deployment-options/cumulus_api_launchpad_authentication",
+      "additional-deployment-options/cumulus_saml_launchpad_integration"
+    ],
+    "Additional Features": [
+      "features/backup_and_restore",
+      "features/data_in_dynamodb",
+      "features/dead_letter_queues",
+      "features/ems_reporting",
+      "features/execution_payload_retention",
+      "features/inventory_reports",
+      "features/lambda_versioning",
+      "features/ancillary_metadata",
+      "features/distribution-metrics",
+      "features/logging-esdis-metrics"
+    ],
+    "Troubleshooting": [
+      "troubleshooting/troubleshooting-readme",
+      "troubleshooting/troubleshooting-deployment"
+    ],
+    "Cumulus Development": [
+      "adding-a-task",
+      "docs-how-to"
+    ]
+  },
+  "Data Cookbooks": {
+    "About Cookbooks": [
+      "data-cookbooks/about-cookbooks",
+      "data-cookbooks/setup"
+    ],
+    "Cookbooks": [
+      "data-cookbooks/hello-world",
+      "data-cookbooks/ingest-notifications",
+      "data-cookbooks/sips-workflow",
+      "data-cookbooks/cnm-workflow",
+      "data-cookbooks/error-handling",
+      "data-cookbooks/choice-states",
+      "data-cookbooks/cloudwatch-retention",
+      "data-cookbooks/browse-generation",
+      "data-cookbooks/tracking-files",
+      "data-cookbooks/run-tasks-in-lambda-or-docker",
+      "data-cookbooks/throttling-queued-executions"
+    ]
+  },
+  "Operator Docs": {
+    "About Operator Docs": [
+      "operator-docs/about-operator-docs"
+    ],
+    "Configuration": [
+      "operator-docs/lifecycle-policies",
+      "operator-docs/locating-access-logs",
+      "operator-docs/collection-storage-best-practices",
+      "operator-docs/serve-dashboard-from-cloudfront",
+      "operator-docs/provider"
+    ],
+    "Operations": [
+      "operator-docs/discovery-filtering",
+      "operator-docs/rerunning-workflow-executions",
+      "operator-docs/replay-kinesis-messages"
+    ],
+    "Common Use Cases": [
+      "operator-docs/common-use-cases",
+      "operator-docs/kinesis-stream-for-ingest",
+      "operator-docs/create-rule-in-cumulus",
+      "operator-docs/granule-workflows"
+    ]
+  }
+}

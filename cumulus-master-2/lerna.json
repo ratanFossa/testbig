@@ -1,0 +1,19 @@
+{
+  "lerna": "3.20.2",
+  "version": "2.0.1",
+  "packages": [
+    "example",
+    "example/lambdas/*",
+    "lambdas/*",
+    "packages/*",
+    "tasks/*",
+    "tf-modules/*"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    }
+  }
+}

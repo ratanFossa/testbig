@@ -1,0 +1,72 @@
+{
+  "name": "@cumulus/cumulus-integration-tests",
+  "version": "2.0.1",
+  "description": "Cumulus Integration Test Deployment",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.18.0"
+  },
+  "ava": {
+    "files": [
+      "./scripts/tests/**/*.js"
+    ],
+    "verbose": true,
+    "timeout": "15m"
+  },
+  "scripts": {
+    "all-tests": "npm run parallel-tests && ../node_modules/.bin/jasmine && npm run redeploy-test",
+    "deploy": "npm run deploy-cumulus --",
+    "deploy-all": "npm run deploy-data && npm run deploy-cumulus",
+    "deploy-cumulus": "cd cumulus-tf && terraform init && terraform apply",
+    "deploy-data": "cd data-persistence-tf && terraform init && terraform apply",
+    "int-test": "../node_modules/.bin/jasmine && npm run parallel-tests",
+    "package": "for x in lambdas/*; do cd $x && npm run package && cd -; done",
+    "parallel-tests": "sh scripts/tests-parallel.sh",
+    "python-lint": "for x in lambdas/*; do cd $x && npm run python-lint && cd -; done",
+    "redeploy-test": "../node_modules/.bin/jasmine spec/standalone/redeployment/*.js",
+    "test": "npm run test:ava && for x in lambdas/*; do cd $x && npm test && cd -; done",
+    "test:ava": "../node_modules/.bin/ava",
+    "test:coverage": "../node_modules/.bin/nyc npm run test:ava"
+  },
+  "author": "Cumulus Authors",
+  "license": "Apache-2.0",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "12.18"
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@cumulus/api": "2.0.1",
+    "@cumulus/api-client": "2.0.1",
+    "@cumulus/aws-client": "2.0.1",
+    "@cumulus/checksum": "2.0.1",
+    "@cumulus/cmrjs": "2.0.1",
+    "@cumulus/common": "2.0.1",
+    "@cumulus/discover-granules": "2.0.1",
+    "@cumulus/discover-pdrs": "2.0.1",
+    "@cumulus/files-to-granules": "2.0.1",
+    "@cumulus/hello-world": "2.0.1",
+    "@cumulus/integration-tests": "2.0.1",
+    "@cumulus/message": "2.0.1",
+    "@cumulus/move-granules": "2.0.1",
+    "@cumulus/parse-pdr": "2.0.1",
+    "@cumulus/pdr-status-check": "2.0.1",
+    "@cumulus/post-to-cmr": "2.0.1",
+    "@cumulus/queue-granules": "2.0.1",
+    "@cumulus/queue-pdrs": "2.0.1",
+    "@cumulus/sf-sqs-report": "2.0.1",
+    "@cumulus/sync-granule": "2.0.1",
+    "@cumulus/test-processing": "2.0.1"
+  },
+  "devDependencies": {
+    "@cumulus/test-data": "2.0.1"
+  }
+}

@@ -1,0 +1,26 @@
+version: "3"
+services:
+  postgres:
+    ports:
+      - 5432:5432
+  sftp:
+    environment:
+      - CI=false
+    volumes:
+      - ./bootstrap-sftp.sh:/bootstrap-sftp.sh
+      - ../packages/test-data/keys/ssh_client_rsa_key.pub:/etc/authorized_keys/user
+      - ../packages/test-data:/data
+  build_env:
+    image: cumuluss/cumulus-build-env:latest
+    volumes:
+      - ../:/source/cumulus
+      - ../packages/test-data:/tmp/cumulus_unit_test_data
+    ports:
+      - "20:20"
+      - "21:21"
+      - 47400-47470:47400-47470
+      - 3030:3030
+      - 2222:2222
+      - 4550-4599:4550-4599
+      - 8080:8080
+      - 9200:9200

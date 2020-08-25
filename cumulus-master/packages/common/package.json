@@ -1,0 +1,70 @@
+{
+  "name": "@cumulus/common",
+  "version": "2.0.1",
+  "description": "Common utilities used across tasks",
+  "keywords": [
+    "GIBS",
+    "CUMULUS",
+    "NASA"
+  ],
+  "engines": {
+    "node": ">=12.18.0"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/nasa/cumulus/tree/master/packages/common",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa/cumulus"
+  },
+  "scripts": {
+    "build-docs": "npm run tsc && ../../node_modules/.bin/jsdoc2md --template templates/docs-API.hbs URLUtils.js util.js > docs/API.md",
+    "clean": "rm -f *.d.ts *.map",
+    "prepare": "npm run tsc",
+    "test": "../../node_modules/.bin/ava",
+    "test:coverage": "../../node_modules/.bin/nyc npm test",
+    "tsc": "../../node_modules/.bin/tsc",
+    "watch-test": "../../node_modules/.bin/tsc-watch --onsuccess 'npm test'"
+  },
+  "ava": {
+    "files": [
+      "tests/**"
+    ],
+    "verbose": true
+  },
+  "author": "Cumulus Authors",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@cumulus/errors": "2.0.1",
+    "@cumulus/logger": "2.0.1",
+    "ajv": "^5.2.2",
+    "aws-sdk": "^2.585.0",
+    "follow-redirects": "^1.2.4",
+    "fs-extra": "^5.0.0",
+    "got": "^9.2.1",
+    "js-yaml": "^3.11.0",
+    "jsonpath-plus": "^3.0.0",
+    "lodash": "^4.17.15",
+    "mime-types": "^2.1.22",
+    "node-forge": "^0.9.1",
+    "p-limit": "^2.0.0",
+    "p-map": "^1.2.0",
+    "p-retry": "^4.2.0",
+    "parseurl": "^1.3.3",
+    "randexp": "^0.5.3",
+    "ssh2": "^0.8.7",
+    "url-join": "^4.0.0",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.0",
+    "@types/got": "^9.6.11",
+    "@types/node-forge": "^0.9.4",
+    "@types/url-join": "^4.0.0"
+  }
+}

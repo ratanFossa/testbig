@@ -1,0 +1,48 @@
+{
+  "name": "@cumulus/discover-granules",
+  "version": "2.0.1",
+  "description": "Discover Granules in FTP/HTTP/HTTPS/SFTP/S3 endpoints",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "homepage": "https://github.com/nasa/cumulus/tree/master/tasks/discover-granules",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa/cumulus"
+  },
+  "engines": {
+    "node": ">=12.18.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp -R schemas dist/ && ../../node_modules/.bin/webpack",
+    "local": "node index.js | pino",
+    "package": "npm run build && (cd dist && node ../../../bin/zip.js lambda.zip index.js schemas)",
+    "test": "../../node_modules/.bin/ava",
+    "test:coverage": "../../node_modules/.bin/nyc npm test",
+    "watch": "rm -rf dist && mkdir dist && cp -R schemas dist/ && ../../node_modules/.bin/webpack --progress -w"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "ava": {
+    "files": [
+      "!tests/fixtures/**/*"
+    ],
+    "timeout": "15m"
+  },
+  "author": "Cumulus Authors",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@cumulus/api-client": "2.0.1",
+    "@cumulus/cumulus-message-adapter-js": "1.3.1",
+    "@cumulus/ingest": "2.0.1",
+    "@cumulus/logger": "2.0.1",
+    "got": "^9.2.1",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@cumulus/aws-client": "2.0.1",
+    "@cumulus/common": "2.0.1"
+  }
+}
